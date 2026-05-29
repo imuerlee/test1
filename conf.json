@@ -1,0 +1,36 @@
+{
+  "log": {
+    "loglevel": "warning",
+    "access": "/dev/null",
+    "error": "/dev/null"
+  },
+  "inbounds": [
+    {
+      "port": 80,
+      "listen": "0.0.0.0",
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "a1b2c3d4-5678-90ef-ghij-klmnopqrstuv",
+            "level": 0
+          }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "path": "/api/data"  # 伪装成API路径，不用/ws
+        },
+        "security": "none"
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "settings": {}
+    }
+  ]
+}
